@@ -17,12 +17,12 @@ bool isPalindromeHelper(string str, int start, int end) {
         return true;
     }
 
-    // Ignore non-alphabetic characters and convert to lowercase for comparison
-    while (!isalpha(str[start])) {
+    // Ignore non-alphabetic characters and spaces, convert to lowercase for comparison
+    while (!isalpha(str[start]) && !isspace(str[start])) {
         start++;
     }
 
-    while (!isalpha(str[end])) {
+    while (!isalpha(str[end]) && !isspace(str[end])) {
         end--;
     }
 
