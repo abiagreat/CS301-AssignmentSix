@@ -14,6 +14,7 @@ using namespace std;
 bool isPalindromeHelper(string str, int start, int end) {
     // Base case: if the start index crosses the end index, it's a palindrome
     if (start >= end) {
+        cout << "The string '" << str << "' is a palindrome.";
         return true;
     }
 
@@ -28,6 +29,7 @@ bool isPalindromeHelper(string str, int start, int end) {
 
     // Compare the characters at start and end indices
     if (tolower(str[start]) != tolower(str[end])) {
+        cout << "The string '" << str << "' is not a palindrome.";
         return false;
     }
 
@@ -35,8 +37,8 @@ bool isPalindromeHelper(string str, int start, int end) {
     return isPalindromeHelper(str, start + 1, end - 1);
 }
 
-bool isPalindrome(string str) {
-    return isPalindromeHelper(str, 0, str.length() - 1);
+void isPalindrome(string str) {
+    isPalindromeHelper(str, 0, str.length() - 1);
 }
 
 int main() {
@@ -44,11 +46,7 @@ int main() {
     cout << "Enter a string to test: ";
     getline(cin, input);
 
-    if (isPalindrome(input)) {
-        cout << "The string '" << input << "' is a palindrome." << endl;
-    } else {
-        cout << "The string '" << input << "' is not a palindrome." << endl;
-    }
+    isPalindrome(input);
 
     return 0;
 }
